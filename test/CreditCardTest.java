@@ -5,7 +5,12 @@ import src.CreditCardStr;
 public class CreditCardTest {
 
     public static void main(String[] args) {
+        CreditCardStr.main(new String[] {});
+
         testCcSingleString();
+        testCcSingleString2();
+        testCcSingleString3();
+        System.out.println("All tests passed!");
     }
 
     @SuppressWarnings("static-access")
@@ -14,22 +19,47 @@ public class CreditCardTest {
 
         // Test case 1
         String input = "9876-5432-1098-7654";
-        if(input.indexOf("-") != -1) {
-            String expectedOutput = "9876543210987654";
-            String actualOutput = cc.ccSingleString(input);
-            assert expectedOutput.equals(actualOutput) : "Test case 2 passed";
+        String expected = "9876543210987654";
+        String result = cc.ccSingleString(input);
+
+        if(!expected.equals(result)) {
+            System.out.println("Test case 1 failed");
+        }
+        else {
             System.out.println("Test case 1 passed");
         }
+    }
 
+    @SuppressWarnings("static-access")
+    public static void testCcSingleString2() {
+        CreditCardStr cc = new CreditCardStr();
         // Test case 2
         String input2 = "9876 5432 1098 7654";
-        if(input2.indexOf("-") == -1) {
-            String expectedOutput2 = "9876543210987654";
-            String actualOutput2 = cc.ccSingleString(input2);
-            assert expectedOutput2.equals(actualOutput2) : "Test case 2 failed";
+        String expected2 = "9876543210987654";
+        String result2 = cc.ccSingleString(input2);
+
+        if(!expected2.equals(result2)) {
             System.out.println("Test case 2 failed");
         }
-
-        System.out.println("All test cases passed!");
+        else {
+            System.out.println("Test case 2 passed");
+        }
     }
+
+    @SuppressWarnings("static-access")
+    public static void testCcSingleString3() {
+        CreditCardStr cc = new CreditCardStr();
+        // Test case 3
+        String input3 = "9876543210987654";
+        String expected3 = "9876543210987654";
+        String result3 = cc.ccSingleString(input3);
+
+        if(expected3.equals(result3)) {
+            System.out.println("Test case 3 failed");
+        }
+        else {
+            System.out.println("Test case 3 passed");
+        }
+    }
+
 }
