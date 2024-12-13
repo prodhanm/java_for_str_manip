@@ -10,8 +10,15 @@ public class CreditCardStr {
         inp.close();
     }
 
-    public static String ccSingleString(String ccNum) {
-        return ccNum.replace("-", "");
+    public static String ccSingleString(String ccStr) {
+        String[] ccArray = {"-", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "=", "{", "}", "[", "]", "|", "\\", ":", ";", "\"", "'", "<", ">", ",", ".", "?", "/", " ", "", null};
+        for (int i = 0; i < ccArray.length; i++) {
+            if(ccArray[i] != null) {
+                ccStr = ccStr.replace(ccArray[i], "");
+            }
+        }
+        return ccStr;
+        
     }
     
 }
